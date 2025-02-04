@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iris Flower Classifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      text-align: center;
+      margin-top: 50px;
+    }
+    form {
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    .prediction {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body style="background-image: url('https://cdn.pixabay.com/photo/2020/03/26/02/09/iris-4968987_1280.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+  <h1>Iris Flower Prediction App</h1>
+  <form action="/predict" method="POST">
+    <input type="text" name="sepal_length" placeholder="Sepal Length (cm)" required>
+    <input type="text" name="sepal_width" placeholder="Sepal Width (cm)" required>
+    <input type="text" name="petal_length" placeholder="Petal Length (cm)" required>
+    <input type="text" name="petal_width" placeholder="Petal Width (cm)" required>
+    <input type="submit" value="Predict">
+  </form>
+  {% if prediction_text %}
+    <div class="prediction">{{ prediction_text }}</div>
+  {% endif %}
+</body>
+</html>
